@@ -88,6 +88,14 @@ class Element:
         self.body.axis = self.__np_to_vp(BODY_LEN*(self.vel / np.linalg.norm(self.vel)))
         return
 
+    def __np_to_vp(self, vector:np.ndarray):
+        if len(vector) > 3:
+            raise ValueError('Too many elements in vector')
+        if len(vector) < 3:
+            vector = np.array([*vector, *np.zeros(3-len(vector))])
+
+        return vp.vector(vector[0], vector[1], vector[2])
+
     def find_elements(self, elements:np.ndarray, vis_range:float):
 
         nearby = np.array([], dtype=Element)
@@ -111,13 +119,6 @@ class Element:
 
         return
 
-    def __np_to_vp(self, vector:np.ndarray):
-        if len(vector) > 3:
-            raise ValueError('Too many elements in vector')
-        if len(vector) < 3:
-            vector = np.array([*vector, *np.zeros(3-len(vector))])
-
-        return vp.vector(vector[0], vector[1], vector[2])
 
 # Boid element (prey)
 class Boid(Element):
@@ -262,9 +263,6 @@ def simulate():
     """
     Simulation Handler; effective MAIN function
     """
-    
-    # create arena
-    arena = Arena()
 
     # create elements
     boid_list = [Boid(i) for i in range(NUM_BOIDS)]

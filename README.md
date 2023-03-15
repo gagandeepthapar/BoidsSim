@@ -1,2 +1,2 @@
-# BoidsSim
-AERO 470: Modeling and Simulation; Recreating Boids + Predator Algorithm
+# 3D Boids and Predators Simulation
+Project for AERO 470: Modeling and Simulation with Daniel Leon. Objective was to use an Object-Oriented approach in Python and simulate how birds flock together and how predators break them up. Graphics were inherited from the [VPython Library](https://vpython.org/) and the approach was developed using the description from [Craig Reynolds, the creator](https://www.red3d.com/cwr/boids/) and a project specification from Cornell's [ECE 4760/5730 class](https://people.ece.cornell.edu/land/courses/ece4760/labs/f2021/lab2boids/Boids-predator.html). 
